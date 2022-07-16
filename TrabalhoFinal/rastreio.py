@@ -144,7 +144,7 @@ for current_file in file_directory.iterdir():
                 plt.subplot(122),plt.imshow(img,cmap = 'gray')
                 plt.title('Detected Point'), plt.xticks([]), plt.yticks([])
                 plt.suptitle(meth)
-print(MIN_MAX_VALUES)
+print(MIN_MAX_VALUES[1])
 
 for method in methods:
     i = 1
@@ -153,10 +153,10 @@ for method in methods:
     max_len_v_max = len('1000000')
     directory = open(result_directory(method) + "min_max_v.txt", "w")
     for num in range (299):
-        directory.write("{0} {1} {2}".format(
+        directory.write("{0} {1} {2}\n".format(
             str(num+2).ljust(max_len_n),
-            str(MIN_MAX_VALUES.index(i + num*6)[0]).ljust(max_len_v_min),
-            str(MIN_MAX_VALUES.index(i + num*6)[1]).ljust(max_len_v_max)
+            str(MIN_MAX_VALUES[i + num*6][0]).ljust(max_len_v_min),
+            str(MIN_MAX_VALUES[i + num*6][1]).ljust(max_len_v_max)
         ))
     i = i+1
     directory.close()
