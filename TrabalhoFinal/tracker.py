@@ -89,6 +89,14 @@ def main():
             max_len_n = len('frame_300')
             max_len_v = 20
             directory = open(result_directory(method, video = video) + "min_max_v.txt", "w")
+
+            directory.write("{0} {1} {2}\n".format(
+                'frame'.ljust(max_len_n),
+                'min value'.ljust(max_len_v),
+                'max_value'.ljust(max_len_v)
+            ))
+            directory.write("--------------------------------------------------\n")
+
             for num in range (299):
                 if num < 8:
                     row_name = 'frame_00' + str(num+2)
